@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, TextInput, ScrollView } from 'react-native';
-import { Container, Header, Title, Button, Left, Right, Body, Icon, Content, Footer, FooterTab } from 'native-base';
+import { Container, Header, Title, Button, Left, Right, Body, Icon, Content, Footer, FooterTab, Tabs, Tab, TabHeading} from 'native-base';
+import UserHome from './user-home';
+import MessagingHome from './messaging-home';
+import MediaHome from './media-home';
+import SettingsHome from './settings-home';
 
 export default function App() {
   return (<AppShell></AppShell>);
@@ -19,38 +23,26 @@ class AppShell extends Component {
     return (
       <Container>
         <Header>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Left>
+          <Left/>
           <Body>
-            <Title>Header</Title>
+            <Title>LifeShare</Title>
           </Body>
           <Right />
         </Header>
-
-        <Content padder>
-          <Text>
-            This is Content Section
-          </Text>
-        </Content>
-        <Footer>
-        <FooterTab>
-            <Button>
-              <Icon name="apps" />
-            </Button>
-            <Button>
-              <Icon name="camera" />
-            </Button>
-            <Button active>
-              <Icon active name="navigate" />
-            </Button>
-            <Button>
-              <Icon name="person" />
-            </Button>
-          </FooterTab>
-        </Footer>
+        <Tabs tabBarPosition="bottom">
+          <Tab heading={ <TabHeading><Icon name="home" /></TabHeading> }>
+            <UserHome/>
+          </Tab>
+          <Tab heading={ <TabHeading><Icon name="mail" /></TabHeading> }>
+            <MessagingHome/>
+          </Tab>
+          <Tab heading={ <TabHeading><Icon name="images" /></TabHeading> }>
+            <MediaHome/>
+          </Tab>
+          <Tab heading={ <TabHeading><Icon name="settings" /></TabHeading> }>
+            <SettingsHome/>
+          </Tab>
+        </Tabs>
       </Container>
     );
   }
