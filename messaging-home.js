@@ -21,7 +21,8 @@ export default class MessagingHome extends Component {
 
       for(let i = 0; i < messages.length; i++) {
         messageComponents.push(
-          <Message key={i}
+          <Message
+            key={i}
             sender={messages[i].sender}
             message={messages[i].message}
             time={messages[i].time}
