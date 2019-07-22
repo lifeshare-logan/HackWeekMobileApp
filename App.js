@@ -22,11 +22,11 @@ class AppShell extends Component {
   render() {
     return (
       <Container>
-        <Header>
-          <Left/>
-          <Body>
-            <Title>LifeShare</Title>
-          </Body>
+        <Header style={styles.header}>
+          <Left>
+          <Title>LifeShare</Title>
+          </Left>
+          <Body/>
           <Right />
         </Header>
         <Tabs tabBarPosition="bottom">
@@ -57,5 +57,8 @@ const styles = StyleSheet.create({
   },
   whiteBack: {
     backgroundColor: '#fff',
+  },
+  header: {
+    backgroundColor: '#1DBBFF'
   }
 });
