@@ -5,6 +5,7 @@ import UserHome from './user-home';
 import MessagingHome from './messaging-home';
 import MediaHome from './media-home';
 import SettingsHome from './settings-home';
+import { Font, AppLoading } from 'expo';
 
 export default function App() {
   return (<AppShell></AppShell>);
@@ -16,10 +17,24 @@ class AppShell extends Component {
     this.state = {
       isShowingText: true,
       text: '',
+      loading: true,
     };
   }
 
+  async componentWillMount() {
+  await Font.loadAsync({
+    Roboto: require("native-base/Fonts/Roboto.ttf"),
+    Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
+  });
+  this.setState({ loading: false });
+}
+
   render() {
+    if (this.state.loading) {
+      return (
+          <AppLoading />
+      );
+    }
     return (
       <Container>
         <Header style={styles.header}>
