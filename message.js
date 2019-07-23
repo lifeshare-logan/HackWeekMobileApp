@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Alert, View, Button, TouchableHighlight} from 'react-native';
+import {AppRegistry, Alert, View, Button, TouchableHighlight} from 'react-native';
 import {Badge, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text} from 'native-base';
+import { StackNavigator } from 'react-navigation';
 var image = require('./noPhoto.png');
-
 
 export default class Message extends Component {
 
@@ -16,7 +16,7 @@ export default class Message extends Component {
       badge = <Badge><Text>{this.props.numberNew}</Text></Badge>
     }
     return (
-        <ListItem avatar onPress={() => this.alertMe(this.props.sender)} underlayColor="white">
+        <ListItem avatar onPress={() => this.props.navigation('Details', {sender: this.props.sender})}>
           <Left>
             <Thumbnail source={image} />
           </Left>

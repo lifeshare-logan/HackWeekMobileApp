@@ -4,6 +4,8 @@ import Message from './message';
 
 export default class MessagingHome extends Component {
     render() {
+      const { navigate } = this.props.navigation;
+
       let messages = [{
         sender: 'Tommy T',
         message: 'Doing what you like will always keep you happy . .',
@@ -23,6 +25,7 @@ export default class MessagingHome extends Component {
         messageComponents.push(
           <Message
             key={i}
+            navigation={navigate}
             sender={messages[i].sender}
             message={messages[i].message}
             time={messages[i].time}
