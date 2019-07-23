@@ -12,6 +12,7 @@ import MessagingHome from './messaging-home';
 import MediaHome from './media-home';
 import SettingsHome from './settings-home';
 import MessageDetail from './message-detail';
+import { Font, AppLoading } from 'expo';
 
 const UserStack = createStackNavigator({
   User: UserHome,
@@ -26,15 +27,15 @@ const MessagingStack = createStackNavigator({
     screen: MessageDetail,
     path: 'messaging/details'
   }
-});
+ });
 
 const MediaStack = createStackNavigator({
   Media: MediaHome,
-})
+});
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsHome,
-})
+});
 
 const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
   {
@@ -86,7 +87,27 @@ const AppNavigation = () => (
 )
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+  }
+
+async componentWillMount() {
+  await Font.loadAsync({
+    Roboto: require("native-base/Fonts/Roboto.ttf"),
+    Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
+  });
+  this.setState({ loading: false });
+}
+
   render() {
+    if (this.state.loading) {
+      return (
+          <AppLoading />
+      );
+    }
     return (
       <AppNavigation/>
     )
