@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, TextInput, ScrollView } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Platform, TextInput, ScrollView } from 'react-native';
 import { Container, Header, Title, Button, Left, Right, Body, Icon, Content, Footer, FooterTab, Tabs, Tab, TabHeading} from 'native-base';
 import UserHome from './user-home';
 import MessagingHome from './messaging-home';
@@ -75,5 +75,11 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#1DBBFF'
-  }
+  },
+  headerTitleStyle: {
+      ...Platform.select({
+        ios: { fontFamily: 'Arial', },
+        android: { fontFamily: 'Roboto' },
+      }),
+    },
 });
