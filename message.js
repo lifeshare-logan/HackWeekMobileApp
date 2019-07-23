@@ -16,7 +16,7 @@ export default class Message extends Component {
       badge = <Badge><Text>{this.props.numberNew}</Text></Badge>
     }
     return (
-        <ListItem avatar onPress={() => this.props.navigation('Details', {sender: this.props.sender})}>
+        <ListItem avatar onPress={() => this.props.navigation('Details', {sender: this.props.sender, message: this.props.message, time: this.props.time})}>
           <Left>
             <Thumbnail source={image} />
           </Left>
