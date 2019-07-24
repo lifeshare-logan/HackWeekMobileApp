@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import { Content } from 'native-base';
-=======
-import {AppRegistry, Text, View, Button} from 'react-native';
-import { Container, Header, Content, Card, CardItem, Body } from 'native-base';
->>>>>>> 3bc31abee085001412a0a4afac8712db7d5ebaf4
 import EventCard from './components/event-card';
+import MenuCarousel from './components/menu-carousel';
 import { StackNavigator } from 'react-navigation';
 
 export default class UserHome extends Component {
@@ -30,6 +26,7 @@ export default class UserHome extends Component {
                      events={activities}/>
           <EventCard title="Appointments"
                      events={appointments}/>
+          <MenuCarousel/>
         </Content>
       );
     }

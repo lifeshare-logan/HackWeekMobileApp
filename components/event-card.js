@@ -2,35 +2,30 @@ import React, {Component} from 'react';
 import { Container, Header, List, Content, Card, CardItem, Body, Text } from 'native-base';
 
 export default class EventCard extends Component {
+    state = {expanded: false};
+
     render() {
       let events = this.props.events;
       let eventComponents = [];
-      for(let i = 0; i < Math.min(events.length, 3); i++) {
-        eventComponents.push(
-          <CardItem key={i} button onPress={() => alert("Hello!")}>
-            <Body>
-              <Text>
-                {events[i].time} {events[i].title}
-                </Text>
-            </Body>
-          </CardItem>
-        )
+      const displayCount = this.state.expanded
+        ? events.length
+        : Math.min(events.length, 3);
+      for(let i = 0; i < displayCount; i++) {
+        const eventText = events[i].time + " " + events[i].title;
+        eventComponents.push(this.generateCardItem(i, eventText));
       }
-      if (events.length > 3) {
-        eventComponents.push(
-          <CardItem key={3} button onPress={() => alert("Hello!")}>
-            <Body>
-              <Text>
-                And {events.length - 3} More
-                </Text>
-            </Body>
-        </CardItem>
-        );
+      if (!this.state.expanded && events.length > 3) {
+        const text = "Show " + (events.length - 3) + " More";
+        eventComponents.push(this.generateCardItem(3, text, () => this.setState({expanded: true})));
+      }
+      else if (this.state.expanded) {
+        const text = "Hide " + this.props.title;
+        eventComponents.push(this.generateCardItem(events.length, text, () => this.setState({expanded: false})));
       }
 
       return (
           <Card>
-            <CardItem header button onPress={() => alert("Hello!")}>
+            <CardItem bordered header>
               <Text>{this.props.title}</Text>
             </CardItem>
             <List>
@@ -38,5 +33,16 @@ export default class EventCard extends Component {
             </List>
           </Card>
       )
+    }
+
+    generateCardItem(key, text, onPress) {
+      onPress = onPress || function(){};
+      return <CardItem key={key} bordered button onPress={onPress}>
+        <Body>
+          <Text>
+            {text}
+          </Text>
+        </Body>
+      </CardItem>
     }
 }

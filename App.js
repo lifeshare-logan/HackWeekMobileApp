@@ -15,7 +15,13 @@ import MessageDetail from './message-detail';
 import { Font, AppLoading } from 'expo';
 
 const UserStack = createStackNavigator({
-  User: UserHome,
+  User: {
+    screen: UserHome,
+    navigationOptions: {
+      title: 'Home',
+      header: null
+    },
+  }
 });
 
 const MessagingStack = createStackNavigator({
@@ -53,7 +59,7 @@ const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
          iconName = "md-home";
        } else if (routeName === 'Messaging') {
          iconName = "md-mail";
-       } else if (routeName == 'Media') {
+       } else if (routeName === 'Media') {
          iconName = "md-images";
        } else {
          iconName = "md-settings";
