@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import UserHome from './user-home';
 import MessagingHome from './messaging-home';
 import MediaHome from './media-home';
+import PictureView from './picture-view';
 import SettingsHome from './settings-home';
 import MessageDetail from './message-detail';
 import { Font, AppLoading } from 'expo';
@@ -31,6 +32,7 @@ const MessagingStack = createStackNavigator({
 
 const MediaStack = createStackNavigator({
   Media: MediaHome,
+  PicView: PictureView,
 });
 
 const SettingsStack = createStackNavigator({
@@ -71,8 +73,6 @@ const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   whiteBack: {
     backgroundColor: '#fff',

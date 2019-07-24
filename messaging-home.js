@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Badge, Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text} from 'native-base';
+import {ScrollView} from 'react-native';
 import Message from './message';
 
 export default class MessagingHome extends Component {
@@ -33,9 +34,11 @@ export default class MessagingHome extends Component {
         )
       }
       return (
+        <ScrollView>
         <List>
           {messageComponents}
         </List>
+        </ScrollView>
       )
     }
 }
