@@ -47,7 +47,8 @@ class UserHome extends Component {
           <EventCard title="Activities"
                      events={activities}/>
           <EventCard title="Appointments"
-                     events={appointments}/>
+                     events={appointments}
+                     navigation={this.props.navigation}/>
           <MenuCarousel meals={meals}/>
         </Content>
       );

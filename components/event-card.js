@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Container, Header, List, Content, Card, CardItem, Body, Text } from 'native-base';
-
+import { H2, Container, Header, List, Button, Badge, Content, Card, CardItem, Body, Icon, Text, Left, Right } from 'native-base';
+import { StackNavigator } from 'react-navigation';
 export default class EventCard extends Component {
     state = {expanded: false};
 
@@ -26,7 +26,14 @@ export default class EventCard extends Component {
       return (
           <Card>
             <CardItem bordered header>
-              <Text>{this.props.title}</Text>
+             <Left>
+              <H2 primary>{this.props.title}</H2>
+              </Left>
+              <Right>
+              <Button rounded primary onPress={() => this.props.navigation.navigate('EventEdit', {})}>
+                <Icon name="add" style={{ fontSize: 24, lineHeight: 24, color: "#fff"}}/>
+              </Button>
+              </Right>
             </CardItem>
             <List>
               {eventComponents}
