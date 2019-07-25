@@ -3,8 +3,21 @@ import { Content } from 'native-base';
 import EventCard from './components/event-card';
 import MenuCarousel from './components/menu-carousel';
 import { StackNavigator } from 'react-navigation';
+import { themes } from './themes';
 
-export default class UserHome extends Component {
+class UserHome extends Component {
+    static navigationOptions = {
+      title: 'LifeShare',
+      headerStyle: {
+        color: themes.light.textColor,
+        backgroundColor: themes.light.backgroundColor
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        color: themes.light.textColor
+      },
+    };
     render() {
       const { navigate } = this.props.navigation;
 
@@ -21,7 +34,7 @@ export default class UserHome extends Component {
         {title: "Bar", time: "11:00AM"},
       ];
       return (
-        <Content>
+        <Content style={themes.light}>
           <EventCard title="Activities"
                      events={activities}/>
           <EventCard title="Appointments"
@@ -31,3 +44,5 @@ export default class UserHome extends Component {
       );
     }
 }
+
+export default UserHome;
