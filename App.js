@@ -61,9 +61,9 @@ const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
      },
    }),
    tabBarOptions: {
-     activeTintColor: themes.normal.primaryColor,
-     inactiveTintColor: themes.normal.textColor,
-     style: themes.normal
+     activeTintColor: themes.light.primaryColor,
+     inactiveTintColor: themes.light.textColor,
+     style: themes.light
    },
   }
 ));
@@ -93,7 +93,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       loading: true,
-      theme: props.normal
+      theme: props.light
     };
   }
 

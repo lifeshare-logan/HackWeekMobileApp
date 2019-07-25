@@ -2,8 +2,21 @@ import React, {Component} from 'react';
 import {Badge, Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text} from 'native-base';
 import {ScrollView} from 'react-native';
 import Message from './message';
+import { themes } from './themes';
 
 export default class MessagingHome extends Component {
+  static navigationOptions = {
+    title: 'LifeShare',
+    headerStyle: {
+      color: themes.light.textColor,
+      backgroundColor: themes.light.backgroundColor
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: themes.light.textColor
+    },
+  };
     render() {
       const { navigate } = this.props.navigation;
 

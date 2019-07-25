@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, Image, View, Modal, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
 import {Card, CardItem, Thumbnail, Left, Body, Right, Item, Input, Label, Button,Icon, Header} from 'native-base';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import { themes } from './themes';
 
 export default class PictureView extends Component {
   constructor(props) {
@@ -44,8 +45,8 @@ export default class PictureView extends Component {
           </CardItem>
           <CardItem>
             <Body>
-              <Button block success onPress={() => navigation.goBack()}>
-                <Text style={{color:"white"}}>Success</Text>
+              <Button block style={{backgroundColor: themes.light.primaryColor}} onPress={() => navigation.goBack()}>
+                <Text>Success</Text>
               </Button>
             </Body>
           </CardItem>

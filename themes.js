@@ -1,6 +1,6 @@
 import { createTheming } from '@callstack/react-theme-provider';
 export const themes = {
-  normal: {
+  dark: {
     primaryColor: "#12B7FF",
     accentColor: "black",
     backgroundColor: "#797979",
@@ -8,14 +8,26 @@ export const themes = {
     secondaryColor: "#7F5315",
     rotate: false
   },
-  crazy: {
-    primaryColor: "#1B8C81",
-    accentColor: "#458622",
-    backgroundColor: "#8FC266",
-    textColor: "#D94B2B",
-    secondaryColor: "#B9667F",
+  light: {
+    primaryColor: "#12B7FF",
+    accentColor: "black",
+    backgroundColor: "#F5F5F5",
+    textColor: "black",
+    secondaryColor: "#797979",
     rotate: true
   }
 };
-const { ThemeProvider, withTheme } = createTheming(themes.normal);
+export const header = {
+    title: 'LifeShare',
+    headerStyle: {
+      color: themes.light.textColor,
+      backgroundColor: themes.light.backgroundColor
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: themes.light.textColor
+    },
+};
+const { ThemeProvider, withTheme } = createTheming(themes.light);
 export { ThemeProvider, withTheme };

@@ -4,8 +4,21 @@ import {Text, Card, CardItem, Left, Thumbnail, Body, Button, Icon, Right, List} 
 import { StackNavigator } from 'react-navigation';
 var image = require('./noPhoto.png');
 import MediaCard from './media-card';
+import { themes } from './themes';
 
 export default class MediaHome extends Component {
+  static navigationOptions = {
+    title: 'LifeShare',
+    headerStyle: {
+      color: themes.light.textColor,
+      backgroundColor: themes.light.backgroundColor
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: themes.light.textColor
+    },
+  };
 
     render() {
       const { navigate } = this.props.navigation;

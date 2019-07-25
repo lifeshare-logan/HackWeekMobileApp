@@ -9,11 +9,13 @@ class UserHome extends Component {
     static navigationOptions = {
       title: 'LifeShare',
       headerStyle: {
-        backgroundColor: themes.normal.backgroundColor
+        color: themes.light.textColor,
+        backgroundColor: themes.light.backgroundColor
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold',
+        color: themes.light.textColor
       },
     };
     render() {
@@ -32,7 +34,7 @@ class UserHome extends Component {
         {title: "Bar", time: "11:00AM"},
       ];
       return (
-        <Content>
+        <Content style={themes.light}>
           <EventCard title="Activities"
                      events={activities}/>
           <EventCard title="Appointments"
