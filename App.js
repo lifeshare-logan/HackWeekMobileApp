@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Platform, TextInput, ScrollView } from 'react-native';
-import { Container, Header, Title, Button, Left, Right, Body, Icon, Content, Footer, FooterTab, Tabs, Tab, TabHeading} from 'native-base';
+import { H1, Container, DatePicker, Header, Title, Button, Left, Right, Body, Icon, Content, Footer, FooterTab, Tabs, Tab, TabHeading} from 'native-base';
 import { createBottomTabNavigator, createStackNavigator, createAppContainer, } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import UserHome from './user-home';
@@ -12,12 +12,27 @@ import MessageDetail from './message-detail';
 import { Font, AppLoading } from 'expo';
 import { ThemeProvider, withTheme, themes} from './themes';
 
+// state = {date: new Date()};
+
+function setDate(newDate) {
+  // this.setState({ date: newDate });
+}
+
 const UserStack = createStackNavigator({
   User: {
     screen: UserHome,
     navigationOptions: {
-      title: 'Home',
-      header: null
+      header: <View style={{flexDirection: "row"}}>
+        <Left><H1>Hi, Maggie</H1></Left>
+        <Right><DatePicker
+            formatChosenDate={date => [date.getMonth() + 1, date.getDate(), date.getFullYear()].join('/')}
+            locale={"en_US"}
+            defaultDate={new Date()}
+            textStyle={{fontSize: 24}}
+            onDateChange={setDate}/>
+            </Right>
+      </View>,
+      // header: null
     },
   }
 });

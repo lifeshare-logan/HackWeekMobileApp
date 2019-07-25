@@ -1,6 +1,6 @@
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { StyleSheet, Dimensions, Platform } from 'react-native';
-import {Body, Card, CardItem, View, Text, Title, H1} from 'native-base';
+import {Body, Card, CardItem, List, View, Text, Title, H1} from 'native-base';
 import React, {Component} from 'react';
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -10,36 +10,38 @@ function wp (percentage) {
 }
 
 const slideHeight = viewportHeight * 0.36;
-const slideWidth = wp(75);
+const slideWidth = wp(100);
+const itemWidth = wp(85);
 
 export default class MenuCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      entries: [
-        {title: "Breakfast", text: "Steel Cut Oats\nVeggie Frittata\nWhole Wheat Toast\nMelon Medley\n"},
-        {title: "Bar", text: "11:00AM"},
-        {title: "Baz", text: "12:00PM"},
-        {title: "Bam", text: "1:00PM"},
-        {title: "Bat", text: "1:00PM"},
-      ]
+      meals: props.meals
     }
   }
 
     _renderItem ({item, index}) {
       // style={styles.slide}
+      let eventComponents = [];
+      for (let i = 0; i < item.items.length; i++) {
+        eventComponents.push(
+          <CardItem key={i} bordered>
+            <Body>
+              <Text>
+                {item.items[i]}
+              </Text>
+            </Body>
+          </CardItem>);
+      }
         return (
           <Card>
             <CardItem bordered header>
               <Text>{item.title}</Text>
             </CardItem>
-            <CardItem bordered>
-              <Body>
-                <Text>
-                  {item.text}
-                </Text>
-              </Body>
-            </CardItem>
+            <List>
+              {eventComponents}
+            </List>
           </Card>
         );
     }
@@ -48,11 +50,12 @@ export default class MenuCarousel extends Component {
         return (
           <Carousel
             ref={(c) => { this._carousel = c; }}
-            data={this.state.entries}
+            data={this.state.meals}
             renderItem={this._renderItem}
             sliderWidth={slideWidth}
-            itemWidth={slideHeight}
+            itemWidth={itemWidth}
             loop={true}
+            autoplay={false}
           />
         );
     }
