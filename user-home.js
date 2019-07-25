@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import { Content } from 'native-base';
+import { Content, DatePicker } from 'native-base';
 import EventCard from './components/event-card';
 import MenuCarousel from './components/menu-carousel';
 import { StackNavigator } from 'react-navigation';
 
 export default class UserHome extends Component {
+
     render() {
       const { navigate } = this.props.navigation;
 
-      let activities = [
+      const activities = [
         {title: "Foo", time: "10:00AM"},
         {title: "Bar", time: "11:00AM"},
         {title: "Baz", time: "12:00PM"},
@@ -16,17 +17,24 @@ export default class UserHome extends Component {
         {title: "Bat", time: "1:00PM"},
       ];
 
-      let appointments = [
+      const appointments = [
         {title: "Foo", time: "10:00AM"},
         {title: "Bar", time: "11:00AM"},
       ];
+
+      const meals = [
+        {title: "Breakfast", items: ["Steel Cut Oats", "Veggie Frittata", "Whole Wheat Toast", "Melon Medley"]},
+        {title: "Lunch", items: ["Steel Cut Oats", "Veggie Frittata", "Whole Wheat Toast", "Melon Medley"]},
+        {title: "Dinner", items: ["Steel Cut Oats", "Veggie Frittata", "Whole Wheat Toast", "Melon Medley"]},
+      ];
+
       return (
         <Content>
           <EventCard title="Activities"
                      events={activities}/>
           <EventCard title="Appointments"
                      events={appointments}/>
-          <MenuCarousel/>
+          <MenuCarousel meals={meals}/>
         </Content>
       );
     }
