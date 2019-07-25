@@ -7,3 +7,4 @@ Creating a mobile app for LifeShare powered by Spectrio residents in React Nativ
 - NativeBase (UI components)
 - Expo (Command Line Interface, device dev)
 - React Native GiftedChat (chat UX)
+- React Native Image Viewer (image preview UX)

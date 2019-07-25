@@ -3,8 +3,19 @@ import {AppRegistry, Text, View, Button} from 'react-native';
 import { Container, Header, Content, Card, CardItem, Body } from 'native-base';
 import EventCard from './components/event-card';
 import { StackNavigator } from 'react-navigation';
+import { themes } from './themes';
 
-export default class UserHome extends Component {
+class UserHome extends Component {
+    static navigationOptions = {
+      title: 'LifeShare',
+      headerStyle: {
+        backgroundColor: themes.normal.backgroundColor
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    };
     render() {
       const { navigate } = this.props.navigation;
 
@@ -30,3 +41,5 @@ export default class UserHome extends Component {
       );
     }
 }
+
+export default UserHome;

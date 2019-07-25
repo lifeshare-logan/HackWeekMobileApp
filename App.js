@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Platform, TextInput, ScrollView } from 'react-native';
 import { Container, Header, Title, Button, Left, Right, Body, Icon, Content, Footer, FooterTab, Tabs, Tab, TabHeading} from 'native-base';
-import {
-  createBottomTabNavigator,
-  createStackNavigator,
-  createAppContainer,
-} from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer, } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import UserHome from './user-home';
 import MessagingHome from './messaging-home';
@@ -14,6 +10,7 @@ import PictureView from './picture-view';
 import SettingsHome from './settings-home';
 import MessageDetail from './message-detail';
 import { Font, AppLoading } from 'expo';
+import { ThemeProvider, withTheme, themes} from './themes';
 
 const UserStack = createStackNavigator({
   User: UserHome,
@@ -64,21 +61,20 @@ const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
      },
    }),
    tabBarOptions: {
-     activeTintColor: 'blue',
-     inactiveTintColor: 'gray',
+     activeTintColor: themes.normal.primaryColor,
+     inactiveTintColor: themes.normal.textColor,
+     style: themes.normal
    },
   }
 ));
 
+// const AppContainerWithTheme = withTheme(({ theme }) => {
+//   return <AppContainer screenProps={{ theme }} />;
+// });
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  whiteBack: {
-    backgroundColor: '#fff',
-  },
-  header: {
-    backgroundColor: '#1DBBFF'
   },
   headerTitleStyle: {
     ...Platform.select({
@@ -89,7 +85,7 @@ const styles = StyleSheet.create({
 });
 
 const AppNavigation = () => (
-  <LifeShareAppNavigator/>
+    <LifeShareAppNavigator/>
 )
 
 export default class App extends Component {
@@ -97,16 +93,17 @@ export default class App extends Component {
     super(props);
     this.state = {
       loading: true,
+      theme: props.normal
     };
   }
 
-async componentWillMount() {
-  await Font.loadAsync({
-    Roboto: require("native-base/Fonts/Roboto.ttf"),
-    Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
-  });
-  this.setState({ loading: false });
-}
+  async componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
+    });
+    this.setState({ loading: false });
+  }
 
   render() {
     if (this.state.loading) {
@@ -115,7 +112,9 @@ async componentWillMount() {
       );
     }
     return (
-      <AppNavigation/>
+      <ThemeProvider theme={this.state.theme}>
+        <AppNavigation/>
+      </ThemeProvider>
     )
   }
 }
