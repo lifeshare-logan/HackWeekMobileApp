@@ -4,6 +4,7 @@ import { H1, Container, DatePicker, Header, Title, Button, Left, Right, Body, Ic
 import { createBottomTabNavigator, createStackNavigator, createAppContainer, } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import UserHome from './user-home';
+import EventEdit from './components/event-edit';
 import MessagingHome from './messaging-home';
 import MediaHome from './media-home';
 import PictureView from './picture-view';
@@ -34,6 +35,10 @@ const UserStack = createStackNavigator({
       </View>,
       // header: null
     },
+  },
+  EventEdit: {
+    screen: EventEdit,
+    path: "events/edit"
   }
 });
 
