@@ -23,13 +23,13 @@ const UserStack = createStackNavigator({
   User: {
     screen: UserHome,
     navigationOptions: {
-      header: <Header style={{flex: 1, flexDirection: "row"}}>
-        <Left><H1>Hi, Maggie</H1></Left>
+      header: <Header style={{flex: 1, flexDirection: "row", backgroundColor: themes.spectrio.accentColor}}>
+        <Left><H1 style={{color: themes.spectrio.textColor}}>Hi, Maggie</H1></Left>
         <Right><DatePicker
             formatChosenDate={date => [date.getMonth() + 1, date.getDate(), date.getFullYear()].join('/')}
             locale={"en_US"}
             defaultDate={new Date()}
-            textStyle={{fontSize: 24}}
+            textStyle={{fontSize: 24, color: themes.spectrio.textColor}}
             onDateChange={setDate}/>
             </Right>
       </Header>,
@@ -86,9 +86,9 @@ const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
      },
    }),
    tabBarOptions: {
-     activeTintColor: themes.light.primaryColor,
-     inactiveTintColor: themes.light.textColor,
-     style: themes.light
+     activeTintColor: themes.spectrio.primaryColor,
+     inactiveTintColor: themes.spectrio.textColor,
+     style: {backgroundColor: themes.spectrio.accentColor}
    },
   }
 ));

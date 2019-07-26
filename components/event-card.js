@@ -25,15 +25,15 @@ export default class EventCard extends Component {
       }
 
       return (
-          <Card>
-            <CardItem bordered header>
+          <Card style={{ backgroundColor: themes.spectrio.accentColor}}>
+            <CardItem bordered header style={{ backgroundColor: themes.spectrio.secondaryColor}}>
              <Left>
-              <H2 primary>{this.props.title}</H2>
+              <H2 style={{color: themes.spectrio.primaryColor}}>{this.props.title}</H2>
               </Left>
               <Right>
                 {this.props.editable &&
-                  <Button rounded style={{ backgroundColor: themes.light.primaryColor}} onPress={() => this.props.navigation.navigate('EventEdit', {})}>
-                    <Icon name="add" style={{ backgroundColor: themes.light.primaryColor, fontSize: 24, lineHeight: 24, color: "#fff"}}/>
+                  <Button rounded style={{ backgroundColor: themes.spectrio.primaryColor}} onPress={() => this.props.navigation.navigate('EventEdit', {})}>
+                    <Icon name="add" style={{ backgroundColor: themes.spectrio.primaryColor, fontSize: 24, lineHeight: 24, color: "#fff"}}/>
                   </Button>
                 }
               </Right>
@@ -47,9 +47,9 @@ export default class EventCard extends Component {
 
     generateCardItem(key, text, onPress) {
       onPress = onPress || function(){};
-      return <CardItem key={key} bordered button onPress={onPress}>
+      return <CardItem key={key} bordered button onPress={onPress} style={{ backgroundColor: themes.spectrio.secondaryColor}}>
         <Body>
-          <Text>
+          <Text style={{color: themes.spectrio.textColor}}>
             {text}
           </Text>
         </Body>

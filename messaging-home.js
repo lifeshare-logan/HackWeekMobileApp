@@ -6,15 +6,15 @@ import { themes } from './themes';
 
 export default class MessagingHome extends Component {
   static navigationOptions = {
-    title: 'LifeShare',
+    title: 'LifeShare Powered By Spectrio',
     headerStyle: {
-      color: themes.light.textColor,
-      backgroundColor: themes.light.backgroundColor
+      color: themes.spectrio.textColor,
+      backgroundColor: themes.spectrio.accentColor
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontWeight: 'bold',
-      color: themes.light.textColor
+      color: themes.spectrio.textColor
     },
   };
 
@@ -56,7 +56,7 @@ export default class MessagingHome extends Component {
       }
       return (
         <Container>
-          <ScrollView>
+          <ScrollView style={{backgroundColor: themes.spectrio.backgroundColor}}>
             <List>
               {messageComponents}
             </List>
@@ -65,7 +65,7 @@ export default class MessagingHome extends Component {
             active={true}
             direction="up"
             containerStyle={{ }}
-            style={{ backgroundColor: themes.light.primaryColor }}
+            style={{ backgroundColor: themes.spectrio.primaryColor }}
             position="bottomRight"
             onPress={() => this.newMessage()}>
             <Icon large name="add" />
@@ -94,6 +94,5 @@ export default class MessagingHome extends Component {
 
     newMessage() {
       this.setState({ create: true})
-      // Alert.alert("New Message");
     }
 }

@@ -3,6 +3,7 @@ import {AppRegistry, Alert, View, Button, TouchableHighlight} from 'react-native
 import {Badge, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text} from 'native-base';
 import { StackNavigator } from 'react-navigation';
 var image = require('./noPhoto.png');
+import { themes } from './themes';
 
 export default class Message extends Component {
 
@@ -22,13 +23,17 @@ export default class Message extends Component {
           </Left>
           <Body>
             <Text>{this.props.sender}</Text>
-            <Text note>{this.props.message}</Text>
+            <Text note style={styles}>{this.props.message}</Text>
           </Body>
           <Right>
-            <Text note>{this.props.time}</Text>
+            <Text note style={styles}>{this.props.time}</Text>
             {badge}
           </Right>
         </ListItem>
     );
   }
+}
+
+const styles = {
+  color: themes.spectrio.textColor,
 }

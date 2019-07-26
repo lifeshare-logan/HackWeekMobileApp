@@ -2,9 +2,23 @@ import React, {Component} from 'react';
 import {Alert, View, Button, TouchableHighlight} from 'react-native';
 import {Badge, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text} from 'native-base';
 var image = require('./noPhoto.png');
+import {themes} from './themes';
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export default class MessageDetail extends Component {
+  static navigationOptions = {
+    title: 'LifeShare Powered By Spectrio',
+    headerStyle: {
+      color: themes.spectrio.textColor,
+      backgroundColor: themes.spectrio.accentColor
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: themes.spectrio.textColor
+    },
+  };
+  
     constructor(props) {
       super(props);
       this.state = {

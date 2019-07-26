@@ -8,15 +8,15 @@ import { themes } from './themes';
 
 export default class MediaHome extends Component {
   static navigationOptions = {
-    title: 'LifeShare',
+    title: 'LifeShare Powered By Spectrio',
     headerStyle: {
-      color: themes.light.textColor,
-      backgroundColor: themes.light.backgroundColor
+      color: themes.spectrio.textColor,
+      backgroundColor: themes.spectrio.accentColor
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontWeight: 'bold',
-      color: themes.light.textColor
+      color: themes.spectrio.textColor
     },
   };
 
@@ -78,12 +78,14 @@ export default class MediaHome extends Component {
 const styles = {
   outer: {
     flex: 1,
-    height: '100%'
+    height: '100%',
+    backgroundColor: themes.spectrio.backgroundColor
   },
   wrapper: {
     justifyContent: 'space-evenly',
     alignItems: 'flex-start',
     flexWrap: 'wrap',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: themes.spectrio.backgroundColor
   }
 }

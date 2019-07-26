@@ -27,9 +27,9 @@ export default class MenuCarousel extends Component {
       let eventComponents = [];
       for (let i = 0; i < item.items.length; i++) {
         eventComponents.push(
-          <CardItem key={i} bordered>
+          <CardItem key={i} bordered style={{backgroundColor: themes.spectrio.secondaryColor}}>
             <Body>
-              <Text>
+              <Text style={{color: themes.spectrio.textColor}}>
                 {item.items[i]}
               </Text>
             </Body>
@@ -37,8 +37,8 @@ export default class MenuCarousel extends Component {
       }
         return (
           <Card>
-            <CardItem bordered>
-              <Text style={{color: themes.light.primaryColor}}>{item.title}</Text>
+            <CardItem bordered style={{backgroundColor: themes.spectrio.secondaryColor}}>
+              <Text style={{color: themes.spectrio.primaryColor}}>{item.title}</Text>
             </CardItem>
             <List>
               {eventComponents}

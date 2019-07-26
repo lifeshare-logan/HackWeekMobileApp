@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
 import {Text, Image, View, Modal, TouchableNativeFeedback, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
-import {Card, CardItem, Thumbnail, Left, Body, Right, Item, Input, Label, Button,Icon} from 'native-base';
+import {Card, CardItem, Thumbnail, Left, Body, Right, Item, Input, Label, Button,Icon, Header} from 'native-base';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import { themes } from './themes';
 
 export default class PictureView extends Component {
+  static navigationOptions = {
+    title: 'LifeShare Powered By Spectrio',
+    headerStyle: {
+      color: themes.spectrio.textColor,
+      backgroundColor: themes.spectrio.accentColor
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: themes.spectrio.textColor
+    },
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -25,28 +38,29 @@ export default class PictureView extends Component {
       freeHeight: true
     });
     return (
-      <KeyboardAvoidingView style={{flex: 1}} behavior="position">
+      <KeyboardAvoidingView style={{flex: 1, backgroundColor: themes.spectrio.backgroundColor}} behavior="position">
         <Card style={{width: '100%'}}>
           <TouchableOpacity onPress={() => this.setState({modalVisible: true})}>
             <CardItem cardBody>
               <Image source={media.uri} style={{height: 400, width: null, flex: 1}}/>
             </CardItem>
           </TouchableOpacity>
-          <CardItem>
+          <CardItem style={{backgroundColor: themes.spectrio.secondaryColor}}>
             <Body>
               <Item floatingLabel>
                 <Label>Caption</Label>
                 <Input
+                  style={{color: themes.spectrio.textColor}}
                   value={this.state.caption}
                   onChangeText={(caption) => this.setState({caption})}
                 />
               </Item>
             </Body>
           </CardItem>
-          <CardItem>
+          <CardItem style={{backgroundColor: themes.spectrio.secondaryColor}}>
             <Body>
-              <Button block style={{backgroundColor: themes.light.primaryColor}} onPress={() => navigation.goBack()}>
-                <Text>Success</Text>
+              <Button block style={{backgroundColor: themes.spectrio.primaryColor}} onPress={() => navigation.goBack()}>
+                <Text style={{color: themes.spectrio.textColor}}>Success</Text>
               </Button>
             </Body>
           </CardItem>

@@ -7,19 +7,6 @@ import { themes } from './themes';
 
 
 class UserHome extends Component {
-    static navigationOptions = {
-      title: 'LifeShare',
-      headerStyle: {
-        color: themes.light.textColor,
-        backgroundColor: themes.light.backgroundColor
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        color: themes.light.textColor
-      },
-    };
-
     render() {
       const { navigate } = this.props.navigation;
 
@@ -43,7 +30,7 @@ class UserHome extends Component {
       ];
 
       return (
-        <Content style={themes.light}>
+        <Content style={{backgroundColor: themes.spectrio.backgroundColor}}>
           <EventCard title="Activities"
                      events={activities}/>
           <EventCard title="Appointments"

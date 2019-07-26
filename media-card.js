@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Alert, Image,ScrollView, View, TouchableOpacity} from 'react-native';
 import {Text, Card, CardItem, ListItem, Left, Thumbnail, Body, Button, Icon, Right, List} from 'native-base';
 import { StackNavigator } from 'react-navigation';
+import { themes } from './themes';
+
 export default class MediaCard extends Component {
 
   render() {
@@ -13,8 +15,8 @@ export default class MediaCard extends Component {
             <CardItem cardBody>
               <Image source={media.uri} style={{flex: 1, maxHeight: 200}}/>
             </CardItem>
-            <CardItem>
-              <Body><Text>{media.caption}</Text></Body>
+            <CardItem style={{backgroundColor: themes.spectrio.secondaryColor}}>
+              <Body><Text style={{color: themes.spectrio.textColor}}>{media.caption}</Text></Body>
             </CardItem>
           </Card>
         </TouchableOpacity>

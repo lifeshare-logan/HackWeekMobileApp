@@ -20,7 +20,7 @@ export const themes = {
     primaryColor: "#3b2c9d",
     accentColor: "#6b63c9",
     backgroundColor: "#8c7fe3",
-    textColor: "black",
+    textColor: "white",
     secondaryColor: "#c4bef1",
     rotate: true
   }
