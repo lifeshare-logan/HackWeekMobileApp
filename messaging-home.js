@@ -32,7 +32,7 @@ export default class MessagingHome extends Component {
         sender: 'Tommy T',
         message: 'Doing what you like will always keep you happy . .',
         time: '3:43 pm',
-        numberNew: '0'
+        numberNew: '0',
       },
       {
         sender: 'Logan Schiessle',

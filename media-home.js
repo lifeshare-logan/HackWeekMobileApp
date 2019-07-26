@@ -26,8 +26,8 @@ export default class MediaHome extends Component {
       const media = [
         {
           id: "123",
-          uri: require('./noPhoto.png'),
-          caption: "No Photo"
+          uri: require('./wayne.jpg'),
+          caption: "Reggie"
         },
         {
           id: "124",
@@ -51,8 +51,8 @@ export default class MediaHome extends Component {
         },
         {
           id: "128",
-          uri: require('./noPhoto.png'),
-          caption: "No Photo"
+          uri: require('./wayne.jpg'),
+          caption: ""
         },
       ];
       const comps = [];

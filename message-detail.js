@@ -18,7 +18,7 @@ export default class MessageDetail extends Component {
       color: themes.spectrio.textColor
     },
   };
-  
+
     constructor(props) {
       super(props);
       this.state = {
@@ -30,8 +30,8 @@ export default class MessageDetail extends Component {
       this.setState({
         messages: [
           {
-            _id: 1,
-            text: 'Hello developer',
+            _id: 3,
+            text: 'How are you today?',
             createdAt: new Date(),
             user: {
               _id: 2,
@@ -49,7 +49,16 @@ export default class MessageDetail extends Component {
               avatar: 'https://placeimg.com/140/140/any',
             },
           },
-
+          {
+            _id: 1,
+            text: 'Hello developer',
+            createdAt: new Date(),
+            user: {
+              _id: 2,
+              name: 'React Native',
+              avatar: 'https://placeimg.com/140/140/any',
+            },
+          },
         ],
       })
     }
