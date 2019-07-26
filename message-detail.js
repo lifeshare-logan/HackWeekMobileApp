@@ -3,6 +3,7 @@ import {Alert, View, Button, TouchableHighlight} from 'react-native';
 import {Badge, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text} from 'native-base';
 var image = require('./noPhoto.png');
 import {themes} from './themes';
+import {chatMessages} from './fakeData';
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export default class MessageDetail extends Component {
@@ -28,47 +29,21 @@ export default class MessageDetail extends Component {
 
     componentWillMount() {
       this.setState({
-        messages: [
-          {
-            _id: 3,
-            text: 'How are you today?',
-            createdAt: new Date(),
-            user: {
-              _id: 2,
-              name: 'React Native',
-              avatar: 'https://placeimg.com/140/140/any',
-            },
-          },
-          {
-            _id: 2,
-            text: 'Hello grandma',
-            createdAt: new Date(),
-            user: {
-              _id: 1,
-              name: 'Logan',
-              avatar: 'https://placeimg.com/140/140/any',
-            },
-          },
-          {
-            _id: 1,
-            text: 'Hello developer',
-            createdAt: new Date(),
-            user: {
-              _id: 2,
-              name: 'React Native',
-              avatar: 'https://placeimg.com/140/140/any',
-            },
-          },
-        ],
+        messages: chatMessages
       })
     }
 
+    // The GiftedChat's onSend function triggers this which basically makes a coppy
+    // of the previous state, appends a new message, and resets the state.
     onSend(messages = []) {
       this.setState(previousState => ({
         messages: GiftedChat.append(previousState.messages, messages),
       }))
     }
 
+    // pass a list of messages to gifted chat, with id's of two different users,
+    // and the chat will sort them by oldest to newest and present them in an
+    // messaging type chat.
     render() {
       const { navigation } = this.props;
       const name = navigation.getParam('sender');

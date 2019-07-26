@@ -3,6 +3,7 @@ import {Badge, Container, Header, Content, List, ListItem, Icon, Left, Body, Rig
 import {ScrollView, Alert, Modal, View} from 'react-native';
 import Message from './message';
 import { themes } from './themes';
+import {messagingHomeList} from './fakeData';
 
 export default class MessagingHome extends Component {
   static navigationOptions = {
@@ -26,23 +27,17 @@ export default class MessagingHome extends Component {
   }
 
     render() {
+      // Each home screen for the repective tab, should capture the nav prop like
+      // so, then pass it to each child component. See how the Message components
+      // below all have the prop: navigation={navigate}. Now those components
+      // can also navigate.
       const { navigate } = this.props.navigation;
 
-      let messages = [{
-        sender: 'Tommy T',
-        message: 'Doing what you like will always keep you happy . .',
-        time: '3:43 pm',
-        numberNew: '0',
-      },
-      {
-        sender: 'Logan Schiessle',
-        message: 'How are you today? I hope you are doing well . .',
-        time: '3:55 pm',
-        numberNew: '1'
-      }
-    ]
-      let messageComponents = [];
+      let messages = messagingHomeList;
 
+      // In React Native, you can actually create an array of actual components
+      // Then throw them on the screen in a list or whatever.
+      let messageComponents = [];
       for(let i = 0; i < messages.length; i++) {
         messageComponents.push(
           <Message

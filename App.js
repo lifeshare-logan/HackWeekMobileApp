@@ -61,6 +61,10 @@ const SettingsStack = createStackNavigator({
   Settings: SettingsHome,
 });
 
+// These 4 things are collections of screens that are wired up to be a tabbing
+// system. Each one is its own tab on the bottom of the screen. We also set
+// the icons for each tab here. Then each "stack" has its own screens defined
+// within it. Doing this, we get a lot of navigation stuff forward and backward for free.
 const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
   {
     Home: UserStack,

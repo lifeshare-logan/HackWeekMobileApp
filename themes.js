@@ -1,4 +1,8 @@
 import { createTheming } from '@callstack/react-theme-provider';
+
+// In a perfect world we would have figured out a way to easily make these styles
+// availible to the entire app, but we didnt figure that out, so we manually import them
+// EVERYWHERE.
 export const themes = {
   dark: {
     primaryColor: "#12B7FF",
