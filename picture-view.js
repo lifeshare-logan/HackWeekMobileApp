@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Text, Image, View, Modal, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
-import {Card, CardItem, Thumbnail, Left, Body, Right, Item, Input, Label, Button,Icon, Header} from 'native-base';
+import {Text, Image, View, Modal, TouchableNativeFeedback, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import {Card, CardItem, Thumbnail, Left, Body, Right, Item, Input, Label, Button,Icon} from 'native-base';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import { themes } from './themes';
 
@@ -25,8 +25,8 @@ export default class PictureView extends Component {
       freeHeight: true
     });
     return (
-      <View style={{flex: 1, height: '100%', alignItems: 'center'}}>
-        <Card style={{width: '90%'}}>
+      <KeyboardAvoidingView style={{flex: 1}} behavior="position">
+        <Card style={{width: '100%'}}>
           <TouchableOpacity onPress={() => this.setState({modalVisible: true})}>
             <CardItem cardBody>
               <Image source={media.uri} style={{height: 400, width: null, flex: 1}}/>
@@ -51,6 +51,7 @@ export default class PictureView extends Component {
             </Body>
           </CardItem>
         </Card>
+        <View style={{ height: 60 }} />
         <Modal
           visible={this.state.modalVisible}
           transparent={true}
@@ -65,7 +66,8 @@ export default class PictureView extends Component {
             enableSwipeDown={true}
           />
         </Modal>
-      </View>
+        </KeyboardAvoidingView>
+
     )
   }
 }
