@@ -23,7 +23,7 @@ const UserStack = createStackNavigator({
   User: {
     screen: UserHome,
     navigationOptions: {
-      header: <View style={{flexDirection: "row"}}>
+      header: <Header style={{flex: 1, flexDirection: "row"}}>
         <Left><H1>Hi, Maggie</H1></Left>
         <Right><DatePicker
             formatChosenDate={date => [date.getMonth() + 1, date.getDate(), date.getFullYear()].join('/')}
@@ -32,8 +32,7 @@ const UserStack = createStackNavigator({
             textStyle={{fontSize: 24}}
             onDateChange={setDate}/>
             </Right>
-      </View>,
-      // header: null
+      </Header>,
     },
   },
   EventEdit: {
@@ -93,10 +92,6 @@ const LifeShareAppNavigator = createAppContainer(createBottomTabNavigator(
    },
   }
 ));
-
-// const AppContainerWithTheme = withTheme(({ theme }) => {
-//   return <AppContainer screenProps={{ theme }} />;
-// });
 
 const styles = StyleSheet.create({
   container: {

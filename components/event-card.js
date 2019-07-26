@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { H2, Container, Header, List, Button, Badge, Content, Card, CardItem, Body, Icon, Text, Left, Right } from 'native-base';
 import { StackNavigator } from 'react-navigation';
+import {themes} from '../themes';
 export default class EventCard extends Component {
     state = {expanded: false};
 
@@ -30,8 +31,8 @@ export default class EventCard extends Component {
               <H2 primary>{this.props.title}</H2>
               </Left>
               <Right>
-              <Button rounded primary onPress={() => this.props.navigation.navigate('EventEdit', {})}>
-                <Icon name="add" style={{ fontSize: 24, lineHeight: 24, color: "#fff"}}/>
+              <Button style={{ backgroundColor: themes.light.primaryColor}} onPress={() => this.props.navigation.navigate('EventEdit', {})}>
+                <Icon name="add" style={{ backgroundColor: themes.light.primaryColor, fontSize: 24, lineHeight: 24, color: "#fff"}}/>
               </Button>
               </Right>
             </CardItem>

@@ -15,6 +15,14 @@ export const themes = {
     textColor: "black",
     secondaryColor: "#797979",
     rotate: true
+  },
+  spectrio: {
+    primaryColor: "#3b2c9d",
+    accentColor: "#6b63c9",
+    backgroundColor: "#8c7fe3",
+    textColor: "black",
+    secondaryColor: "#c4bef1",
+    rotate: true
   }
 };
 export const header = {
