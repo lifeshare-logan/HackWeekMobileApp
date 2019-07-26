@@ -30,9 +30,11 @@ export default class EventCard extends Component {
               <H2 primary>{this.props.title}</H2>
               </Left>
               <Right>
-              <Button rounded primary onPress={() => this.props.navigation.navigate('EventEdit', {})}>
-                <Icon name="add" style={{ fontSize: 24, lineHeight: 24, color: "#fff"}}/>
-              </Button>
+              {this.props.editable &&
+                <Button rounded primary onPress={() => this.props.navigation.navigate('EventEdit', {})}>
+                  <Icon name="add" style={{ fontSize: 24, lineHeight: 24, color: "#fff"}}/>
+                </Button>
+              }
               </Right>
             </CardItem>
             <List>
