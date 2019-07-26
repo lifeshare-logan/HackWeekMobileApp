@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 import {Body, Card, CardItem, List, View, Text, Title, H1} from 'native-base';
 import React, {Component} from 'react';
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+import {themes} from '../themes';
 
 function wp (percentage) {
     const value = (percentage * viewportWidth) / 100;
@@ -36,8 +37,8 @@ export default class MenuCarousel extends Component {
       }
         return (
           <Card>
-            <CardItem bordered header>
-              <Text>{item.title}</Text>
+            <CardItem bordered>
+              <Text style={{color: themes.light.primaryColor}}>{item.title}</Text>
             </CardItem>
             <List>
               {eventComponents}

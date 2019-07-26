@@ -25,17 +25,6 @@ export const themes = {
     rotate: true
   }
 };
-export const header = {
-    title: 'LifeShare',
-    headerStyle: {
-      color: themes.light.textColor,
-      backgroundColor: themes.light.backgroundColor
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      color: themes.light.textColor
-    },
-};
+
 const { ThemeProvider, withTheme } = createTheming(themes.light);
 export { ThemeProvider, withTheme };
