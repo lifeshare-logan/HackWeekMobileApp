@@ -25,7 +25,7 @@ export default class EventCard extends Component {
       }
 
       return (
-          <Card style={{ backgroundColor: themes.spectrio.accentColor}}>
+          <Card style={{ backgroundColor: themes.spectrio.accentColor, width: '90%'}}>
             <CardItem bordered header style={{ backgroundColor: themes.spectrio.secondaryColor}}>
              <Left>
               <H2 style={{color: themes.spectrio.primaryColor}}>{this.props.title}</H2>

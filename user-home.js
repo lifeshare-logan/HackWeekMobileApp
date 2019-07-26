@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Content, DatePicker } from 'native-base';
 import EventCard from './components/event-card';
 import MenuCarousel from './components/menu-carousel';
-import { StackNavigator } from 'react-navigation';
+import { View } from 'react-native';
 import { themes } from './themes';
 
 
@@ -30,7 +30,8 @@ class UserHome extends Component {
       ];
 
       return (
-        <Content style={{backgroundColor: themes.spectrio.backgroundColor}}>
+        <Content style={{backgroundColor: themes.spectrio.backgroundColor, flex: 1}}>
+        <View style={{alignItems: 'center'}}>
           <EventCard title="Activities"
                      events={activities}/>
           <EventCard title="Appointments"
@@ -38,6 +39,7 @@ class UserHome extends Component {
                      navigation={this.props.navigation}
                      editable={true}/>
           <MenuCarousel meals={meals}/>
+          </View>
         </Content>
       );
     }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Badge, Container, Header, Content, List, ListItem, Icon, Left, Body, Right, Thumbnail, Text, Fab, Form, Button, Item, Input, Textarea} from 'native-base';
-import {ScrollView, Alert, Modal} from 'react-native';
+import {ScrollView, Alert, Modal, View} from 'react-native';
 import Message from './message';
 import { themes } from './themes';
 
@@ -72,11 +72,13 @@ export default class MessagingHome extends Component {
           </Fab>
           <Modal
             visible={this.state.create}
-            transparent={false}
+            transparent={true}
+            animationType={'slide'}
             onRequestClose={() => this.setState({ create: false})}
           >
-            <Header />
-            <Form style={{paddingBottom: 10}}>
+            <Header style={{backgroundColor: themes.spectrio.accentColor}}/>
+            <View style={{backgroundColor: themes.spectrio.backgroundColor}}>
+            <Form style={{paddingBottom: 10, backgroundColor: themes.spectrio.backgroundColor}}>
               <Item>
                 <Input placeholder="Recipient" />
               </Item>
@@ -84,9 +86,10 @@ export default class MessagingHome extends Component {
                 <Input placeholder="Message" />
               </Item>
             </Form>
-            <Button block onPress={() => this.setState({ create: false})}>
-              <Text> Send Message </Text>
+            <Button block style={{backgroundColor: themes.spectrio.primaryColor}}onPress={() => this.setState({ create: false})}>
+              <Text style={{color: themes.spectrio.textColor}}> Send Message </Text>
             </Button>
+            </View>
           </Modal>
         </Container>
       )
